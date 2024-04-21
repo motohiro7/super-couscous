@@ -155,13 +155,12 @@ for name in os.listdir(weight_uvr5_root):
     if name.endswith(".pth") or "onnx" in name:
         uvr5_names.append(name.replace(".pth", ""))
 
-
 def change_choices():
     names = []
     for name in os.listdir(weight_root):
         if name.endswith(".pth"):
             names.append(name)
-    index_paths = []
+    index_paths = ["none.index"]  # 空の選択肢を追加
     for root, dirs, files in os.walk(index_root, topdown=False):
         for name in files:
             if name.endswith(".index") and "trained" not in name:
